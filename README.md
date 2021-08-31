@@ -11,6 +11,7 @@
 * Primeiro Passo: acrescente a permissão para execução do arquivo setup e carregue as dependências para uso do sistema.  
 
   `sudo chmod o+x bin/setup`
+
   `bin/setup`
 
 * Segundo Passo: Podemos executar o sistema.
