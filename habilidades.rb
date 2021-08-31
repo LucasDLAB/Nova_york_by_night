@@ -1,2 +1,2 @@
-class skills
+module Skills
 	

@@ -5,7 +5,7 @@ class Personagem
 	include Atributos
 
 	attr_accessor :nome_personagem, :nome_jogador, :vocacao, :idade, :peso, :genero, :altura, :forca, :vigor, :agilidade, :expressao, :inteligencia, :conhecimento, :pontos_para_distribuir
-  
+
   def initialize 
     @forca = 0
     @vigor = 0
@@ -69,7 +69,7 @@ class Personagem
 9 - Ocultista"
 			print "Escolha: "
 			@vocacao = gets.to_i
-			case @v
+			case @vocacao
 				when 1
 					@vocacao = "Caçador"
 

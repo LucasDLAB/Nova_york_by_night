@@ -13,7 +13,9 @@ module Atributos
 		captura
 		n = 0
 			for c in 0..5 do
-				print "#{n+1} - "
+				if @pontos_para_distribuir != 0 
+					print "#{n+1} - "
+				end
 				puts "#{@personagem_atributos[n].capitalize} => #{self.instance_variable_get(@atributos[n])}"
 				n += 1 
 			end
@@ -41,6 +43,7 @@ module Atributos
 	def distribuicao
 		while true
 			pontos
+			print "Escolha: "
 			@v = gets.to_i - 1
 			case @v
 				when 0
