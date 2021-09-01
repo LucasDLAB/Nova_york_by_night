@@ -17,7 +17,7 @@ class Personagem
 	end
 
 	def personagem_atributos
-    @personagem_atributos = self.instance_variables
+    self.instance_variables
 	end                            
 end
 
