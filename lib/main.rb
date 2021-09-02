@@ -4,5 +4,6 @@ require_relative "ui"
 include Ui
 
 character = Personagem.new
+character.personagem_habilidades
 
-Ui::CreatePerson.create(character)
+character.pontos_habilidades

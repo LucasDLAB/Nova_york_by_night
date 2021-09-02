@@ -43,36 +43,97 @@ module Ui
       while true
         puts "Vocações".center(30)
         puts "
-        1 - Caçador
-        2 - Cientista
-        3 - Combatente
-        4 - Espião
-        5 - Exorcista
-        6 - Hacker
-        7 - Ladrão
-        8 - Médico
-        9 - Ocultista"
+1 - Caçador
+2 - Cientista
+3 - Combatente
+4 - Espião
+5 - Exorcista
+6 - Hacker
+7 - Ladrão
+8 - Médico
+9 - Ocultista"
         print "Escolha: "
         character.vocacao = gets.to_i
         case character.vocacao
         when 1
           character.vocacao = "Caçador"
+          character.rastrear += 10
         when 2
           character.vocacao = "Cientista"
+          puts "Como Cientista, você deseja bônus em robótica [R] ou em alquimia [A]?"
+          while true
+            puts "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "R"
+              character.robotica += 10
+              break
+            elsif resposta == "A"
+              character.alquimia += 10
+              break
+            else
+              puts "Digite R para robótica ou A para alquimia"
+            end
+          end
         when 3
           character.vocacao = "Combatente"
+          puts "Como Combatente, você deseja bônus em golpear [G] ou em atirar [A]?"
+          while true
+            puts "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "G"
+              character.golpear += 10
+              break
+            elsif resposta == "A"
+              character.atirar += 10
+              break
+            else
+              puts "Digite G para golpear ou A para atirar"
+            end
+          end
         when 4 
           character.vocacao = "Espião"
+          puts "Como Espião, você deseja bônus em robótica [R] ou em furtividade [F]?"
+          while true
+            puts "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "R"
+              character.robotica += 10
+              break
+            elsif resposta == "F"
+              character.furtividade += 10
+              break
+            else
+              puts "Digite R para robótica ou F para furtividade"
+            end
+          end
         when 5 
           character.vocacao = "Exorcista"
+          character.exorcismo += 10
         when 6 
           character.vocacao = "Hacker"
+          character.computacao += 10
         when 7
           character.vocacao = "Ladrão"
+          puts "Como Ladrão, você deseja bônus em interpretar [I] ou em furtar [F]?"
+          while true
+            puts "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "I"
+              character.interpetrar += 10
+              break
+            elsif resposta == "F"
+              character.furtar += 10
+              break
+            else
+              puts "Digite I para interpetrar ou F para furtar"
+            end
+          end
         when 8 
           character.vocacao = "Médico"
+          character.medicina += 10
         when 9 
           character.vocacao = "Ocultista"
+          character.ocultismo += 10
         else
           "Vocação inexistente"   
         end
