@@ -24,14 +24,14 @@ module Atributos
 			end
 	end
 
-	def total (chv,val)
+	def total (chave,valor)
 		puts " "
-		puts "Você possui #{val} pontos em #{chv} "
+		puts "Você possui #{valor} pontos em #{chave} "
 		while true
-			print "Quantos pontos você deseja atribuir em #{chv}: "
+			print "Quantos pontos você deseja atribuir em #{chave}: "
 			@point = gets.to_i
 			puts " "
-			if @point <= @pontos_para_distribuir
+			if @point <= @pontos_para_distribuir and @point >= 0
 				@pontos_para_distribuir -= @point 
 				break
 			else
@@ -81,6 +81,7 @@ module Atributos
 					if resp == 'S' or resp == 'N'
 						break
 					else
+						puts "\e[H\e[2J"
 						puts "Digite S para sim ou N para não"
 					end
 				end
@@ -88,6 +89,7 @@ module Atributos
 					break
 				elsif resp == 'N'
 					@pontos_para_distribuir = 50
+					puts "\e[H\e[2J"
 					puts "Por favor, redistribua os pontos novamente"
 				end
 			end	

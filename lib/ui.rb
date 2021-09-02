@@ -1,14 +1,20 @@
 module Ui
   class CreatePerson
+
+    def self.show(character)
+      puts "Nome do personagem e jogador: #{character.nome_personagem} / #{character.nome_jogador} #{' '*5} Vocação: #{character.vocacao}"
+      puts "Idade: #{character.idade} #{' '*5} Peso: #{character.peso} kg #{' '*5} Altura: #{character.altura} cm"
+      puts "Sexo: #{character.genero}"
+    end
     
     def self.create(character)
 
       while true
         print "Digite o nome do seu personagem: "
-        character.character_name = gets.chomp.to_s
+        character.nome_personagem = gets.chomp.to_s
       
         while true
-          print "Tem certeza que deseja selecionar o nome #{character.character_name} [S/N]? "
+          print "Tem certeza que deseja selecionar o nome #{character.nome_personagem} [S/N]? "
           confirmation = gets.chomp.to_s.upcase
           if confirmation == 'S' or confirmation == 'N'
               break
@@ -24,9 +30,9 @@ module Ui
 
       while true
         print "Digite o nome do jogador: "
-        @nome_jogador= gets.chomp.to_s
+        character.nome_jogador= gets.chomp.to_s
         while true
-          print "Tem certeza que o nome do jogador é #{character.character_name} [S/N]? "
+          print "Tem certeza que o nome do jogador é #{character.nome_jogador} [S/N]? "
           confirmation = gets.chomp.to_s.upcase
           if confirmation == 'S' or confirmation == 'N'
             break
@@ -62,7 +68,7 @@ module Ui
           character.vocacao = "Cientista"
           puts "Como Cientista, você deseja bônus em robótica [R] ou em alquimia [A]?"
           while true
-            puts "Escolha: "
+            print "Escolha: "
             resposta = gets.to_s.upcase[0]
             if resposta == "R"
               character.robotica += 10
@@ -78,7 +84,7 @@ module Ui
           character.vocacao = "Combatente"
           puts "Como Combatente, você deseja bônus em golpear [G] ou em atirar [A]?"
           while true
-            puts "Escolha: "
+            print "Escolha: "
             resposta = gets.to_s.upcase[0]
             if resposta == "G"
               character.golpear += 10
@@ -94,7 +100,7 @@ module Ui
           character.vocacao = "Espião"
           puts "Como Espião, você deseja bônus em robótica [R] ou em furtividade [F]?"
           while true
-            puts "Escolha: "
+            print "Escolha: "
             resposta = gets.to_s.upcase[0]
             if resposta == "R"
               character.robotica += 10
@@ -116,7 +122,7 @@ module Ui
           character.vocacao = "Ladrão"
           puts "Como Ladrão, você deseja bônus em interpretar [I] ou em furtar [F]?"
           while true
-            puts "Escolha: "
+            print "Escolha: "
             resposta = gets.to_s.upcase[0]
             if resposta == "I"
               character.interpetrar += 10
@@ -135,7 +141,7 @@ module Ui
           character.vocacao = "Ocultista"
           character.ocultismo += 10
         else
-          "Vocação inexistente"   
+          puts"Vocação inexistente"   
         end
         
         if character.vocacao.class == String
@@ -159,12 +165,18 @@ module Ui
         character.altura = gets.to_f
         print "Qual é o peso do personagem? "
         character.peso = gets.to_f
-        print "Tem certeza que a idade do personagem é #{character.idade}, a altura é igual à #{character.altura} e o peso é #{character.peso} [S/N]? "
-        confirmation = gets.chomp.to_s.upcase
-        if confirmation == 'S' or confirmation == 'N'
+        while true
+          print "Tem certeza que a idade do personagem é #{character.idade}, a altura é igual à #{character.altura} e o peso é #{character.peso} [S/N]? "
+          confirmation = gets.chomp.to_s.upcase
+          if confirmation == 'S' or confirmation == 'N'
+            break
+          else
+            puts "\e[H\e[2J"
+            puts "Digite S para sim ou N para não"
+          end
+        end
+        if confirmation == 'S'
           break
-        else
-          puts "Digite S para sim ou N para não"
         end
       end
     end
