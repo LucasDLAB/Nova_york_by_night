@@ -4,7 +4,7 @@ module Ui
     def self.show(character)
       puts "Nome do personagem e jogador: #{character.nome_personagem} / #{character.nome_jogador} #{' '*5} Vocação: #{character.vocacao}"
       puts "Idade: #{character.idade} #{' '*5} Peso: #{character.peso} kg #{' '*5} Altura: #{character.altura} cm"
-      puts "Sexo: #{character.genero}"
+      puts "Sexo: #{character.genero}    Temperamento: #{character.temperamento}    Destino: #{character.destino}" 
     end
     
     def self.create(character)
@@ -155,6 +155,220 @@ module Ui
         character.genero = gets.chomp.upcase
         if character.genero == 'M' or character.genero == 'F'
             break
+        end
+      end
+
+      while true
+        puts "Temperamento".center(30)
+        puts "
+1 - Fleumático
+2 - Sanguíneo
+3 - Colérico
+4 - Melancólico"
+        print "Escolha: "
+        character.temperamento = gets.to_i
+        case character.temperamento
+        when 1
+          character.temperamento = "Fleumático"
+          character.vigor += 2
+          character.conhecimento += 2
+        when 2
+          character.temperamento = "Sanguíneo"
+          character.agilidade += 2
+          character.conhecimento += 2
+
+        when 3
+          character.temperamento = "Colérico"
+          character.forca += 2
+          character.inteligencia += 2
+        when 4
+          character.temperamento = "Melancólico"
+          character.expressao += 2
+          character.conhecimento += 2
+        else
+          puts"Temperamento inexistente"   
+        end
+        
+        if character.vocacao.class == String
+          break
+        end
+      end
+
+      while true
+        puts "Destino".center(30)
+        puts "
+1 - Anarquista          16 - Naturalista
+2 - Aventureiro         17 - Explorador
+3 - Brincalhão          18 - Pacifista
+4 - Enigmático          19 - Político
+5 - Encrenqueiro        20 - Projetista
+6 - Galanteador         21 - Rebelde
+7 - Herói               22 - Religioso
+8 - Homicida            23 - Revolucionário
+9 - Indulgente          24 - Sobrevivente
+10 - Justiceiro         25 - Vilão
+11 - Louco              26 - Vítima
+12 - Lutador
+13 - Mártir
+14 - Mercador
+15 - Mágico"
+        print "Escolha: "
+        character.destino = gets.to_i
+        case character.destino
+        when 1
+          charadestino = "Anarquista"
+          character.discursar += 2
+          character.intimidar += 2
+        when 2
+          character.destino = "Aventureiro"
+          character.sobrevivencia += 2
+          character.escalar += 2
+
+        when 3
+          character.destino = "Brincalhão"
+          character.interpretar += 2
+          character.diplomacia += 2
+        when 4
+          character.destino = "Enigmático"
+          character.interpretar += 2
+          character.intuicao += 2
+        when 5
+          character.destino = "Encrenqueiro"
+          character.provocar += 2
+          character.esquivar += 2
+        when 6
+          character.destino = "Galanteador"
+          character.seduzir += 2
+          character.diplomacia += 2
+        when 7
+          character.destino = "Herói"
+          character.proteger += 2
+          puts "Como #{character.destino}, você deseja bônus em golpear [G] ou em atirar [A]?"
+          while true
+            print "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "G"
+              character.golpear += 2
+              break
+            elsif resposta == "A"
+              character.atirar += 2
+              break
+            else
+              puts "Digite G para golpear ou A para atirar"
+            end
+          end
+        when 8
+          character.destino = "Homicida"
+          character.furtividade += 2
+          puts "Como #{character.destino}, você deseja bônus em golpear [G] ou em atirar [A]?"
+          while true
+            print "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "G"
+              character.golpear += 2
+              break
+            elsif resposta == "A"
+              character.atirar += 2
+              break
+            else
+              puts "Digite G para golpear ou A para atirar"
+            end
+          end
+        when 9
+          character.destino = "Indulgente"
+          character.diplomacia += 2
+          character.discursar += 2
+        when 10
+          character.destino = "Justiceiro"
+          character.rastrear += 2
+          puts "Como #{character.destino}, você deseja bônus em golpear [G] ou em atirar [A]?"
+          while true
+            print "Escolha: "
+            resposta = gets.to_s.upcase[0]
+            if resposta == "G"
+              character.golpear += 2
+              break
+            elsif resposta == "A"
+              character.atirar += 2
+              break
+            else
+              puts "Digite G para golpear ou A para atirar"
+            end
+          end
+
+        when 11
+          character.destino = "Louco"
+          character.banimento += 2
+          #character.percepcao += 2
+        when 12
+          character.destino = "Lutador"
+          character.golpear += 2
+          character.esquivar += 2
+        when 13
+          character.destino = "Mártir"
+          character.proteger += 2
+          character.provocar += 2
+        when 14
+          character.destino = "Mercador"
+          character.diplomacia += 2
+          character.interpretar += 2
+
+        when 15
+          character.destino = "Mágico"
+          character.conjurar += 2
+          character.alquimia += 2
+        when 16
+          character.destino = "Naturalista"
+          character.natureza += 2
+          character.sobrevivencia += 2
+        when 17
+          character.destino = "Explorador"
+          character.investigar += 2
+          character.sobrevivencia += 2
+        when 18
+          character.destino = "Pacifista"
+          character.mantra += 2
+          character.diplomacia += 2
+
+        when 19
+          character.destino = "Político"
+          character.interpretar += 2
+          character.discursar += 2
+        when 20
+          character.destino = "Projetista"
+          character.robotica += 2
+          character.engenharia += 2
+        when 21
+          character.destino = "Rebelde"
+          character.intimidar += 2
+          character.sobrevivencia += 2
+        when 22
+          character.destino = "Religioso"
+          character.panteologia += 2
+          character.banimento += 2
+
+        when 23
+          character.destino = "Revolucionário"
+          character.diplomacia += 2
+          character.provocar += 2
+        when 24
+          character.destino = "Sobrevivente"
+          character.sobrevivencia += 2
+          character.furtividade += 2
+        when 25
+          character.destino = "Vilão"
+          character.furtividade += 2
+          character.interpretar += 2
+        when 26
+          character.destino = "Vítima"
+          character.interpretar += 2
+          character.sobrevivencia += 2
+        else
+          puts"Destino inexistente"   
+        end
+        
+        if character.vocacao.class == String
+          break
         end
       end
             

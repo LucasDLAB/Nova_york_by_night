@@ -5,7 +5,7 @@ class Personagem
 
 	include Atributos,Skills
 
-	attr_accessor :nome_personagem, :nome_jogador, :vocacao, :idade, :peso, :genero, :altura,
+	attr_accessor  :temperamento, :destino, :nome_personagem, :nome_jogador, :vocacao, :idade, :peso, :genero, :altura,
   :forca, :vigor, :agilidade, :expressao, :inteligencia, :conhecimento, :pontos_para_distribuir,
   :abrir_fechadura, :acrobacia, :adestrar_animais, :agarrar, :alquimia, :atirar, :armadilha, :astronomia,
   :banimento, :computacao, :conjurar, :diplomacia, :direcao, :discursar, :erudicao, :escalar, :esfolar, :engenharia,
